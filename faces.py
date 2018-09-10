@@ -24,19 +24,21 @@ while(True):
         roi_color = frame[y:y+h,x:x+h]
 
         id_,conf = recognizer.predict(roi_gray)
-        if conf>=60:
+        if conf>=95:
             print(id_)
             print(labels[id_])
         img_item = "my-image.png"
         cv2.imwrite(img_item,roi_gray)
 
-        color = (255,0,0)
+        color = (0,255,0)
         stroke = 5
-
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        stroke = 2
+        name = labels[id_]
         end_cord_x = x + w
         end_cord_y = y + h
         cv2.rectangle(frame, (x,y), (end_cord_x,end_cord_y), color, stroke)
-
+        cv2.putText(frame,name,(x,y),font,1,color,stroke,cv2.LINE_AA)
 
 
     cv2.imshow('frame',frame)
