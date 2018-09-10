@@ -4,7 +4,7 @@ import pickle
 
 cap = cv2.VideoCapture(0)
 
-face_cascade = cv2.CascadeClassifier('face-rec/data/haarcascades/haarcascade_frontalface_alt2.xml')
+face_cascade = cv2.CascadeClassifier('face-rec/data/haarcascades/haarcascade_frontalface_default.xml')
 recognizer = cv2.face.LBPHFaceRecognizer_create()
 recognizer.read('trainer.yml')
 
